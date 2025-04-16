@@ -15,7 +15,10 @@
         <small class="error" *ngIf="loginForm.get('password')?.errors?.['required']">Password is required</small>
       </div>
 
-      <button type="submit">Login</button>
+      <button type="submit" [disabled]="isLoading">
+        <span *ngIf="!isLoading">Login</span>
+        <span *ngIf="isLoading">Logging in...</span>
+      </button>
     </form>
 
     <p class="redirect">

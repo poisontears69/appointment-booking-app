@@ -10,6 +10,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent {
   loginForm: FormGroup;
 
+  // For spinner
+  
+
   constructor(private fb: FormBuilder) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -17,12 +20,21 @@ export class LoginComponent {
     });
   }
 
+  isLoading = false;
+
   onSubmit(): void {
     if (this.loginForm.valid) {
+      this.isLoading = true; // Start loading animation
+      
       console.log('Logging in...', this.loginForm.value);
-      // TODO: send data to backend or auth service
+      
+      // Simulate API request (replace with actual HTTP service call)
+      setTimeout(() => {
+        console.log('Logged in!');
+        this.isLoading = false; // Stop loading after the request is complete
+      }, 2000);
     } else {
-      this.loginForm.markAllAsTouched();
+      this.loginForm.markAllAsTouched(); // Show validation errors
     }
   }
 }
