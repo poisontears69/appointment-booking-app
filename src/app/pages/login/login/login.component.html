@@ -1,0 +1,25 @@
+<section class="auth">
+  <div class="auth-card">
+    <h2>Welcome Back</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" />
+      <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+        <small class="error" *ngIf="loginForm.get('email')?.errors?.['required']">Email is required</small>
+        <small class="error" *ngIf="loginForm.get('email')?.errors?.['email']">Invalid email format</small>
+      </div>
+
+      <label for="password">Password</label>
+      <input id="password" type="password" formControlName="password" />
+      <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+        <small class="error" *ngIf="loginForm.get('password')?.errors?.['required']">Password is required</small>
+      </div>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <p class="redirect">
+      Don't have an account? <a routerLink="/signup">Sign Up</a>
+    </p>
+  </div>
+</section>

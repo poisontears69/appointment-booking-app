@@ -1,0 +1,34 @@
+<section class="auth">
+  <div class="auth-card">
+    <h2>Create an Account</h2>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <label for="name">Name</label>
+      <input id="name" type="text" formControlName="name" />
+      <div *ngIf="signupForm.get('name')?.touched && signupForm.get('name')?.invalid">
+        <small class="error">Name is required</small>
+      </div>
+    
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" />
+      <div *ngIf="signupForm.get('email')?.touched && signupForm.get('email')?.invalid">
+        <small class="error" *ngIf="signupForm.get('email')?.errors?.['required']">Email is required</small>
+        <small class="error" *ngIf="signupForm.get('email')?.errors?.['email']">Invalid email format</small>
+      </div>
+    
+      <label for="password">Password</label>
+      <input id="password" type="password" formControlName="password" />
+      <div *ngIf="signupForm.get('password')?.touched && signupForm.get('password')?.invalid">
+        <small class="error" *ngIf="signupForm.get('password')?.errors?.['required']">Password is required</small>
+        <small class="error" *ngIf="signupForm.get('password')?.errors?.['minlength']">
+          Password must be at least 6 characters
+        </small>
+      </div>
+    
+      <button type="submit">Sign Up</button>
+    </form>
+    
+    <p class="redirect">
+      Already have an account? <a routerLink="/login">Login</a>
+    </p>
+  </div>
+</section>
