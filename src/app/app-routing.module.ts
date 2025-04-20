@@ -38,7 +38,7 @@ const routes: Routes = [
   //   ]
   // },
   {
-    path: '',
+    path: 'patient',
     component: DashboardComponent, // Layout here
     children: [
       { path: 'home', component: HomeComponent },
