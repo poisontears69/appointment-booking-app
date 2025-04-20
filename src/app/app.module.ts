@@ -34,6 +34,7 @@ import { FilesComponent } from './pages/files/files.component';
 import { FilesSearchComponent } from './pages/files/files-search/files-search.component';
 import { DoctorsComponent } from './pages/doctors/doctors.component';
 import { MessagesComponent } from './pages/messages/messages.component';
+import { SearchDoctorComponent } from './pages/search-doctor/search-doctor.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { MessagesComponent } from './pages/messages/messages.component';
     FilesSearchComponent,
     DoctorsComponent,
     MessagesComponent,
+    SearchDoctorComponent,
   ],
   imports: [
     BrowserModule,

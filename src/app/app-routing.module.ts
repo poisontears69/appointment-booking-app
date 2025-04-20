@@ -13,6 +13,7 @@ import { AdminDashboardComponent } from './layouts/admin-dashboard/admin-dashboa
 import { FilesComponent } from './pages/files/files.component';
 import { DoctorsComponent } from './pages/doctors/doctors.component';
 import { MessagesComponent } from './pages/messages/messages.component';
+import { SearchDoctorComponent } from './pages/search-doctor/search-doctor.component';
 
 
 const routes: Routes = [
@@ -45,7 +46,8 @@ const routes: Routes = [
       { path: 'profile/details', component: ProfileDetailsComponent },
       { path: 'files', component: FilesComponent},
       { path: 'doctors', component : DoctorsComponent},
-      { path: 'messages', component : MessagesComponent}
+      { path: 'messages', component : MessagesComponent},
+      { path: 'search-doctor', component : SearchDoctorComponent}
       // add more sidebar-based routes here
     ]
   },
