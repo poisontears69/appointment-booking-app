@@ -7,9 +7,14 @@ import { Component } from '@angular/core';
   styleUrl: './sidebar.component.less'
 })
 export class SidebarComponent {
-  isOpen = true;
+  isSidebarOpen = false;
 
-  toggleSidebar() {
-    this.isOpen = !this.isOpen;
+  toggleSidebar(): void {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
+
+  onLogout(): void {
+    // TODO: Implement logout logic
+    console.log('Logging out...');
   }
 }

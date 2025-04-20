@@ -7,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.less'
 })
 export class HomeComponent {
+  showModal = false;
 
+  openBookingInstructions() {
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
+  }
 }

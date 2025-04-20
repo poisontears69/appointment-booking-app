@@ -26,6 +26,14 @@ import { SearchBarComponent } from './shared/search-bar/search-bar.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ProfileDetailsComponent } from './pages/profile/profile-details/profile-details.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { DashboardComponent } from './layouts/dashboard/dashboard.component';
+import { PublicComponent } from './layouts/public/public.component';
+import { DoctorDashboardComponent } from './layouts/doctor-dashboard/doctor-dashboard.component';
+import { AdminDashboardComponent } from './layouts/admin-dashboard/admin-dashboard.component';
+import { FilesComponent } from './pages/files/files.component';
+import { FilesSearchComponent } from './pages/files/files-search/files-search.component';
+import { DoctorsComponent } from './pages/doctors/doctors.component';
+import { MessagesComponent } from './pages/messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +51,15 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     SearchBarComponent,
     ProfileComponent,
     ProfileDetailsComponent,
-    SidebarComponent
+    SidebarComponent,
+    DashboardComponent,
+    PublicComponent,
+    DoctorDashboardComponent,
+    AdminDashboardComponent,
+    FilesComponent,
+    FilesSearchComponent,
+    DoctorsComponent,
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,

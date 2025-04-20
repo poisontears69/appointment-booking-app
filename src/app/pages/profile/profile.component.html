@@ -1,26 +1,55 @@
-<div class="profile-container">
-    <div class="profile-header">
-      <h2>John Doe</h2>
-      <button class="edit-btn">Edit Profile</button>
-    </div>
-  
-    <div class="menu-section">
-      <h3>My Files</h3>
-      <ul>
-        <li>All</li>
-        <li>Files</li>
-        <li>Prescriptions</li>
-        <li>Other Notes</li>
-      </ul>
-    </div>
-  
-    <div class="menu-section">
-      <h3>Others</h3>
-      <ul>
-        <li>Transaction History</li>
-        <li>Privacy Policy</li>
-        <li>Help & Support</li>
-      </ul>
+<app-navbar-logged>
+  <div class="left">
+    <button class="icon-btn" (click)="goBack()">
+      <img src="arrow-left-svgrepo-com.svg" alt="Back" />
+    </button>
+  </div>
+
+  <div class="center">
+    <h3>Account</h3>
+  </div>
+
+  <div class="right">
+    <button class="icon-btn">
+      <img src="pencil-svgrepo-com.svg" alt="Edit" />
+    </button>
+  </div>
+</app-navbar-logged>
+
+<div class="profile-form">
+  <div class="form-field">
+    <label>First Name</label>
+    <input type="text" placeholder="John" />
+  </div>
+
+  <div class="form-field">
+    <label>Middle Name</label>
+    <input type="text" placeholder="M." />
+  </div>
+
+  <div class="form-field">
+    <label>Last Name</label>
+    <input type="text" placeholder="Doe" />
+  </div>
+
+  <div class="form-field">
+    <label>Birthdate</label>
+    <input type="date" />
+  </div>
+
+  <div class="form-field with-action">
+    <label>Mobile Number</label>
+    <div class="input-action">
+      <input type="tel" placeholder="Not set" />
+      <button class="action-btn">Change</button>
     </div>
   </div>
-  
+
+  <div class="form-field with-action">
+    <label>Email</label>
+    <div class="input-action">
+      <input type="email" placeholder="Not set" />
+      <button class="action-btn">Add</button>
+    </div>
+  </div>
+</div>

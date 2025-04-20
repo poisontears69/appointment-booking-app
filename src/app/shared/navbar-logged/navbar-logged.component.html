@@ -1,15 +1,9 @@
-<nav class="navbar">
-    <div class="logo">HealthConnect</div>
-  
-    <ul class="nav-icons">
-      <li><img src="/house-chimney-floor-svgrepo-com.svg" alt="Home" /></li>
-      <li><img src="/hospital-svgrepo-com.svg" alt="Doctors" /></li>
-      <li><img src="/message-circle-chat-svgrepo-com.svg" alt="Messages" /></li>
-      <li><img src="/face-id-svgrepo-com.svg" alt="Profile" /></li>
-    </ul>
+<nav class="navbar-logged">
+  <div class="nav-left">
+    <ng-content select=".left"></ng-content>
+  </div>
 
-    <ul class="nav-icon-logout">
-      <li><img src="/door-open-svgrepo-com.svg" alt="Logout"></li>
-    </ul>
+  <div class="nav-right">
+    <ng-content select=".right"></ng-content>
+  </div>
 </nav>
-  
