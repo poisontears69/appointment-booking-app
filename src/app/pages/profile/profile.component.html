@@ -10,46 +10,60 @@
   </div>
 
   <div class="right">
-    <button class="icon-btn">
-      <img src="pencil-svgrepo-com.svg" alt="Edit" />
-    </button>
+    <ng-container *ngIf="!editMode; else editing">
+      <button class="icon-btn" (click)="toggleEdit()">
+        <img src="pencil-svgrepo-com.svg" alt="Edit" />
+      </button>
+    </ng-container>
+    <ng-template #editing>
+      <button class="icon-btn" (click)="saveChanges()" title="Save">
+        <img src="check-svgrepo-com.svg" alt="Save" />
+      </button>
+      <button class="icon-btn" (click)="cancelEdit()" title="Cancel">
+        <img src="xmark-large-svgrepo-com.svg" alt="Cancel" />
+      </button>
+    </ng-template>
   </div>
 </app-navbar-logged>
 
 <div class="profile-form">
   <div class="form-field">
     <label>First Name</label>
-    <input type="text" placeholder="John" />
+    <input type="text" [(ngModel)]="formData.firstName" [disabled]="!editMode" />
   </div>
 
   <div class="form-field">
     <label>Middle Name</label>
-    <input type="text" placeholder="M." />
+    <input type="text" [(ngModel)]="formData.middleName" [disabled]="!editMode" />
   </div>
 
   <div class="form-field">
     <label>Last Name</label>
-    <input type="text" placeholder="Doe" />
+    <input type="text" [(ngModel)]="formData.lastName" [disabled]="!editMode" />
   </div>
 
   <div class="form-field">
     <label>Birthdate</label>
-    <input type="date" />
+    <input type="date" [(ngModel)]="formData.birthdate" [disabled]="!editMode" />
   </div>
 
   <div class="form-field with-action">
     <label>Mobile Number</label>
     <div class="input-action">
-      <input type="tel" placeholder="Not set" />
-      <button class="action-btn">Change</button>
+      <input type="tel" [(ngModel)]="formData.mobile" [disabled]="!editMode" />
+      <button class="action-btn" *ngIf="editMode">Change</button>
     </div>
   </div>
 
   <div class="form-field with-action">
     <label>Email</label>
     <div class="input-action">
-      <input type="email" placeholder="Not set" />
-      <button class="action-btn">Add</button>
+      <input type="email" [(ngModel)]="formData.email" [disabled]="!editMode" />
+      <button class="action-btn" *ngIf="editMode">{{ formData.email ? 'Change' : 'Add' }}</button>
     </div>
   </div>
+
+  <hr class="divider" />
+
+  <button class="logout-btn" (click)="logout()">Logout</button>
 </div>
