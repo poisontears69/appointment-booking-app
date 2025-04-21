@@ -26,17 +26,17 @@ const routes: Routes = [
       { path: 'signup', component: SignupComponent }
     ]
   },
-  // {
-  //   path: '',
-  //   component: DoctorDashboardComponent,
-  //   children: [
-  //     { path: 'home', component: HomeComponent },
-  //     { path: 'profile', component: ProfileComponent },
-  //     { path: 'doctors', component: DoctorsComponent },
-  //     { path: 'messages', component: MessagesComponent },
-  //     { path: 'files', component: FilesComponent }
-  //   ]
-  // },
+  {
+    path: 'doctor-dashboard',
+    component: DoctorDashboardComponent,
+    children: [
+      // { path: 'home', component: HomeComponent },
+      // { path: 'profile', component: ProfileComponent },
+      // { path: 'doctors', component: DoctorsComponent },
+      // { path: 'messages', component: MessagesComponent },
+      // { path: 'files', component: FilesComponent }
+    ]
+  },
   {
     path: 'patient',
     component: DashboardComponent, // Layout here

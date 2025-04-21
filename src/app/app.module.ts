@@ -35,6 +35,7 @@ import { FilesSearchComponent } from './pages/files/files-search/files-search.co
 import { DoctorsComponent } from './pages/doctors/doctors.component';
 import { MessagesComponent } from './pages/messages/messages.component';
 import { SearchDoctorComponent } from './pages/search-doctor/search-doctor.component';
+import { DoctorSidebarComponent } from './shared/doctor-sidebar/doctor-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { SearchDoctorComponent } from './pages/search-doctor/search-doctor.compo
     DoctorsComponent,
     MessagesComponent,
     SearchDoctorComponent,
+    DoctorSidebarComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,70 @@
+<nav class="sidebar" [class.open]="isSidebarOpen">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="/hc.ico" alt="HealthConnect Logo" />
+    </div>
+  
+    <!-- Main Menu -->
+    <ul class="menu main-menu">
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a routerLink="/dashboard">
+          <span class="material-icons">dashboard</span>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/calendar">
+          <span class="material-icons">calendar_today</span>
+          <span>Calendar</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/queue">
+          <span class="material-icons">queue</span>
+          <span>Queue</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/patients">
+          <span class="material-icons">groups</span>
+          <span>Patients</span>
+        </a>
+      </li>
+    </ul>
+  
+    <!-- Secondary Menu -->
+    <ul class="menu secondary-menu">
+      <li routerLinkActive="active">
+        <a routerLink="/profile">
+          <span class="material-icons">person</span>
+          <span>Profile</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/clinic">
+          <span class="material-icons">local_hospital</span>
+          <span>Clinic</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/settings">
+          <span class="material-icons">settings</span>
+          <span>Settings</span>
+        </a>
+      </li>
+      <li (click)="logout()">
+        <a>
+          <span class="material-icons">logout</span>
+          <span>Logout</span>
+        </a>
+      </li>
+    </ul>
+  
+    <!-- Responsive Toggle Arrow -->
+  <button class="toggle-btn" (click)="toggleSidebar()">
+    <span class="material-icons">
+      {{ isSidebarOpen ? 'chevron_right' : 'chevron_left' }}
+    </span>
+  </button>
+  </nav>
+  

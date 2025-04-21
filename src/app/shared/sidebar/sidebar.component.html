@@ -1,37 +1,45 @@
 <nav class="sidebar" [class.open]="isSidebarOpen">
   <!-- Logo -->
   <div class="logo">
-    <img src="hc.ico" alt="Logo" />
+    <img src="/hc.ico" alt="HealthConnect Logo" />
   </div>
 
   <!-- Main Menu -->
-  <ul class="menu">
+  <ul class="menu main-menu">
     <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
       <a routerLink="/patient/home">
-        <img src="/house-chimney-floor-svgrepo-com.svg" alt="Home Icon" />
-        <span>Home</span>
+        <span class="material-icons">home</span>
+        <span class="label">Home</span>
       </a>
     </li>
     <li routerLinkActive="active">
       <a routerLink="/patient/doctors">
-        <img src="/hospital-svgrepo-com.svg" alt="Doctors Icon" />
-        <span>Doctors</span>
+        <span class="material-icons">local_hospital</span>
+        <span class="label">Doctors</span>
       </a>
     </li>
     <li routerLinkActive="active">
       <a routerLink="/patient/messages">
-        <img src="/message-circle-chat-svgrepo-com.svg" alt="Messages Icon" />
-        <span>Messages</span>
+        <span class="material-icons">chat</span>
+        <span class="label">Messages</span>
       </a>
     </li>
     <li routerLinkActive="active">
       <a routerLink="/patient/files">
-        <img src="/folder-svgrepo-com.svg" alt="Files Icon" />
-        <span>Files</span>
+        <span class="material-icons">folder</span>
+        <span class="label">Files</span>
       </a>
     </li>
   </ul>
 
-  <!-- Hamburger -->
-  <button class="hamburger" (click)="toggleSidebar()">☰</button>
+  <ul class="secondary-menu">
+
+  </ul>
+
+  <!-- Responsive Toggle Arrow -->
+  <button class="toggle-btn" (click)="toggleSidebar()">
+    <span class="material-icons">
+      {{ isSidebarOpen ? 'chevron_right' : 'chevron_left' }}
+    </span>
+  </button>
 </nav>

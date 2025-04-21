@@ -12,9 +12,4 @@ export class SidebarComponent {
   toggleSidebar(): void {
     this.isSidebarOpen = !this.isSidebarOpen;
   }
-
-  onLogout(): void {
-    // TODO: Implement logout logic
-    console.log('Logging out...');
-  }
 }
