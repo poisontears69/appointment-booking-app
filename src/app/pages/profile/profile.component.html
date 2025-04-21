@@ -1,7 +1,7 @@
 <app-navbar-logged>
   <div class="left">
     <button class="icon-btn" (click)="goBack()">
-      <img src="arrow-left-svgrepo-com.svg" alt="Back" />
+      <span class="material-icons">arrow_back</span>
     </button>
   </div>
 
@@ -12,15 +12,15 @@
   <div class="right">
     <ng-container *ngIf="!editMode; else editing">
       <button class="icon-btn" (click)="toggleEdit()">
-        <img src="pencil-svgrepo-com.svg" alt="Edit" />
+        <span class="material-icons">edit</span>
       </button>
     </ng-container>
     <ng-template #editing>
       <button class="icon-btn" (click)="saveChanges()" title="Save">
-        <img src="check-svgrepo-com.svg" alt="Save" />
+        <span class="material-icons">check</span>
       </button>
       <button class="icon-btn" (click)="cancelEdit()" title="Cancel">
-        <img src="xmark-large-svgrepo-com.svg" alt="Cancel" />
+        <span class="material-icons">close</span>
       </button>
     </ng-template>
   </div>

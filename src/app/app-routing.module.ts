@@ -14,6 +14,13 @@ import { FilesComponent } from './pages/files/files.component';
 import { DoctorsComponent } from './pages/doctors/doctors.component';
 import { MessagesComponent } from './pages/messages/messages.component';
 import { SearchDoctorComponent } from './pages/search-doctor/search-doctor.component';
+import { CalendarComponent } from './pages/calendar/calendar.component';
+import { QueueComponent } from './pages/queue/queue.component';
+import { PatientsComponent } from './pages/patients/patients.component';
+import { DoctorProfileComponent } from './pages/doctor-profile/doctor-profile.component';
+import { ClinicComponent } from './pages/clinic/clinic.component';
+import { DoctorSettingsComponent } from './pages/doctor-settings/doctor-settings.component';
+import { DoctorHomeComponent } from './pages/doctor-home/doctor-home.component';
 
 
 const routes: Routes = [
@@ -27,14 +34,16 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'doctor-dashboard',
+    path: 'doctor',
     component: DoctorDashboardComponent,
     children: [
-      // { path: 'home', component: HomeComponent },
-      // { path: 'profile', component: ProfileComponent },
-      // { path: 'doctors', component: DoctorsComponent },
-      // { path: 'messages', component: MessagesComponent },
-      // { path: 'files', component: FilesComponent }
+      { path:'dashboard', component : DoctorHomeComponent},
+      { path:'calendar', component : CalendarComponent},
+      { path:'queue', component : QueueComponent},
+      { path:'patients', component : PatientsComponent},
+      { path:'profile', component : DoctorProfileComponent},
+      { path:'clinic', component : ClinicComponent},
+      { path:'settings', component : DoctorSettingsComponent}
     ]
   },
   {

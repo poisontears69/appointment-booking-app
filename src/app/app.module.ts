@@ -36,6 +36,13 @@ import { DoctorsComponent } from './pages/doctors/doctors.component';
 import { MessagesComponent } from './pages/messages/messages.component';
 import { SearchDoctorComponent } from './pages/search-doctor/search-doctor.component';
 import { DoctorSidebarComponent } from './shared/doctor-sidebar/doctor-sidebar.component';
+import { CalendarComponent } from './pages/calendar/calendar.component';
+import { QueueComponent } from './pages/queue/queue.component';
+import { PatientsComponent } from './pages/patients/patients.component';
+import { DoctorProfileComponent } from './pages/doctor-profile/doctor-profile.component';
+import { ClinicComponent } from './pages/clinic/clinic.component';
+import { DoctorSettingsComponent } from './pages/doctor-settings/doctor-settings.component';
+import { DoctorHomeComponent } from './pages/doctor-home/doctor-home.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +71,13 @@ import { DoctorSidebarComponent } from './shared/doctor-sidebar/doctor-sidebar.c
     MessagesComponent,
     SearchDoctorComponent,
     DoctorSidebarComponent,
+    CalendarComponent,
+    QueueComponent,
+    PatientsComponent,
+    DoctorProfileComponent,
+    ClinicComponent,
+    DoctorSettingsComponent,
+    DoctorHomeComponent,
   ],
   imports: [
     BrowserModule,
