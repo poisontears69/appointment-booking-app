@@ -7,9 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './navbar-logged.component.less'
 })
 export class NavbarLoggedComponent {
-
-  logout() {
-    // TODO: Clear auth, redirect to login
-    console.log('Logging out...');
-  }
+  
 }

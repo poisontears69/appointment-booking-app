@@ -40,6 +40,7 @@ import { DoctorProfileComponent } from './doctor/components/doctor-profile/docto
 import { ClinicComponent } from './doctor/components/clinic/clinic.component';
 import { DoctorSettingsComponent } from './doctor/components/doctor-settings/doctor-settings.component';
 import { DoctorHomeComponent } from './doctor/components/doctor-home/doctor-home.component';
+import { NavbarLoggedComponent } from './shared/navbar-logged/navbar-logged.component';
 
 @NgModule({
   declarations: [
