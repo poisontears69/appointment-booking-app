@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PatientComponent } from './patient.component';
+import { DashboardComponent } from '../layouts/patient-layout/dashboard.component';
 import { HomeComponent } from './component/home/home.component';
 import { FilesComponent } from '../pages/files/files.component';
 import { DoctorsComponent } from './component/doctors/doctors.component';
@@ -12,7 +12,7 @@ import { AuthGuard } from '../auth/auth.guard';
 
 const routes: Routes = [
   { path: '',
-    component: PatientComponent,
+    component: DashboardComponent,
     children: [
           { path: 'home', component: HomeComponent },
           { path: 'profile', component: ProfileComponent },

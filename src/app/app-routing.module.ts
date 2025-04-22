@@ -16,8 +16,8 @@ const routes: Routes = [
       { path: 'signup', component: SignupComponent }
     ]
   },
-  { path: 'doctor', loadChildren: () => import('./doctor/doctor.module').then(m => m.DoctorModule) },
   { path: 'patient', loadChildren: () => import('./patient/patient.module').then(m => m.PatientModule) },
+  { path: 'doctor', loadChildren: () => import('./doctor/doctor.module').then(m => m.DoctorModule) },
   { path: '**', redirectTo: '' },
   // {
   //   path: 'admin',
