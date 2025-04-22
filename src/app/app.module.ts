@@ -29,6 +29,8 @@ import { DoctorDashboardComponent } from './layouts/doctor-layout/doctor-dashboa
 import { AdminDashboardComponent } from './layouts/admin-layout/admin-dashboard.component';
 import { FilesComponent } from './pages/files/files.component';
 import { FilesSearchComponent } from './pages/files/files-search/files-search.component';
+import { ProfileComponent } from './patient/component/profile/profile.component';
+import { ProfileDetailsComponent } from './patient/component/profile/profile-details/profile-details.component';
 import { DoctorsComponent } from './patient/component/doctors/doctors.component';
 import { MessagesComponent } from './patient/component/messages/messages.component';
 import { SearchDoctorComponent } from './patient/component/search-doctor/search-doctor.component';
@@ -47,6 +49,7 @@ import { NavbarLoggedComponent } from './shared/navbar-logged/navbar-logged.comp
     AppComponent,
     NavbarComponent,
     LandingComponent,
+    NavbarLoggedComponent,
     LoginComponent,
     SignupComponent,
     HeroComponent,
@@ -66,6 +69,8 @@ import { NavbarLoggedComponent } from './shared/navbar-logged/navbar-logged.comp
     MessagesComponent,
     SearchDoctorComponent,
     DoctorSidebarComponent,
+    ProfileComponent,
+    ProfileDetailsComponent,
     CalendarComponent,
     QueueComponent,
     PatientsComponent,

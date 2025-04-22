@@ -13,8 +13,6 @@ import { AuthGuard } from '../auth/auth.guard';
 const routes: Routes = [
   { path: '',
     component: PatientComponent,
-    canActivate: [AuthGuard],            // Protects the parent route
-    canActivateChild: [AuthGuard],
     children: [
           { path: 'home', component: HomeComponent },
           { path: 'profile', component: ProfileComponent },

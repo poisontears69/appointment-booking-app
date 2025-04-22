@@ -7,7 +7,7 @@ import { DoctorComponent } from './doctor.component';
 
 @NgModule({
   declarations: [
-    DoctorComponent
+    DoctorComponent,
   ],
   imports: [
     CommonModule,
