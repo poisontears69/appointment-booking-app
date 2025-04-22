@@ -14,17 +14,14 @@ import { NavbarComponent } from './pages/landing/navbar/navbar.component';
 import { LandingComponent } from './pages/landing/landing/landing.component';
 import { LoginComponent } from './pages/login/login/login.component';
 import { SignupComponent } from './pages/signup/signup/signup.component';
-import { HomeComponent } from './pages/home/home/home.component';
+import { HomeComponent } from './patient/component/home/home.component';
 
 // Landing subcomponents
 import { HeroComponent } from './pages/landing/hero/hero.component';
 import { FeaturesComponent } from './pages/landing/features/features.component';
 import { CtaComponent } from './pages/landing/cta/cta.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { NavbarLoggedComponent } from './shared/navbar-logged/navbar-logged.component';
 import { SearchBarComponent } from './shared/search-bar/search-bar.component';
-import { ProfileComponent } from './pages/profile/profile.component';
-import { ProfileDetailsComponent } from './pages/profile/profile-details/profile-details.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { DashboardComponent } from './layouts/patient-layout/dashboard.component';
 import { PublicComponent } from './layouts/public-layout/public.component';
@@ -32,17 +29,17 @@ import { DoctorDashboardComponent } from './layouts/doctor-layout/doctor-dashboa
 import { AdminDashboardComponent } from './layouts/admin-layout/admin-dashboard.component';
 import { FilesComponent } from './pages/files/files.component';
 import { FilesSearchComponent } from './pages/files/files-search/files-search.component';
-import { DoctorsComponent } from './pages/doctors/doctors.component';
-import { MessagesComponent } from './pages/messages/messages.component';
-import { SearchDoctorComponent } from './pages/search-doctor/search-doctor.component';
+import { DoctorsComponent } from './patient/component/doctors/doctors.component';
+import { MessagesComponent } from './patient/component/messages/messages.component';
+import { SearchDoctorComponent } from './patient/component/search-doctor/search-doctor.component';
 import { DoctorSidebarComponent } from './shared/doctor-sidebar/doctor-sidebar.component';
-import { CalendarComponent } from './pages/calendar/calendar.component';
-import { QueueComponent } from './pages/queue/queue.component';
-import { PatientsComponent } from './pages/patients/patients.component';
-import { DoctorProfileComponent } from './pages/doctor-profile/doctor-profile.component';
-import { ClinicComponent } from './pages/clinic/clinic.component';
-import { DoctorSettingsComponent } from './pages/doctor-settings/doctor-settings.component';
-import { DoctorHomeComponent } from './pages/doctor-home/doctor-home.component';
+import { CalendarComponent } from './doctor/components/calendar/calendar.component';
+import { QueueComponent } from './doctor/components/queue/queue.component';
+import { PatientsComponent } from './doctor/components/patients/patients.component';
+import { DoctorProfileComponent } from './doctor/components/doctor-profile/doctor-profile.component';
+import { ClinicComponent } from './doctor/components/clinic/clinic.component';
+import { DoctorSettingsComponent } from './doctor/components/doctor-settings/doctor-settings.component';
+import { DoctorHomeComponent } from './doctor/components/doctor-home/doctor-home.component';
 
 @NgModule({
   declarations: [
@@ -56,10 +53,7 @@ import { DoctorHomeComponent } from './pages/doctor-home/doctor-home.component';
     CtaComponent,
     FooterComponent,
     HomeComponent,
-    NavbarLoggedComponent,
     SearchBarComponent,
-    ProfileComponent,
-    ProfileDetailsComponent,
     SidebarComponent,
     DashboardComponent,
     PublicComponent,
