@@ -35,10 +35,15 @@
   
     <!-- Patients Queue -->
     <div class="queue-list">
-      <div class="queue-card" *ngFor="let patient of queuedPatients">
+      <div 
+        class="queue-card" 
+        *ngFor="let patient of queuedPatients" 
+        [routerLink]="['/doctor/patient-record', patient.id]"
+        style="cursor: pointer;"
+      >
         <h4>{{ patient.name }}</h4>
         <p>Status: {{ patient.status }}</p>
       </div>
     </div>
-  </div>
+    
   

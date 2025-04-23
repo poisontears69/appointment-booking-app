@@ -24,7 +24,7 @@ const routes: Routes = [
       { path: 'clinic', component: ClinicComponent },
       { path: 'settings', component: DoctorSettingsComponent },
       { path: 'messages', component : MessagesComponentDoctor},
-      { path: 'patient-record', component : PatientRecordComponent},
+      { path: 'patient-record/:id', component : PatientRecordComponent},
     ]
   }
 ];

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-patient-record',
   standalone: false,
@@ -7,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './patient-record.component.less'
 })
 export class PatientRecordComponent {
+
   patient = {
     name: 'Jane Doe',
     birthdate: '1990-05-15',
@@ -60,9 +63,11 @@ healthRecords = [
 
   patientProfileForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private route: ActivatedRoute) {}
 
   ngOnInit() {
+    const patientId = this.route.snapshot.paramMap.get('id');
+  // Use patientId to fetch patient details from backend or state
     this.patientProfileForm = this.fb.group({
       firstName: ['Jane', Validators.required],
       lastName: ['Doe', Validators.required],
@@ -145,3 +150,4 @@ queueOptionsNoAppointment: string[] = [
 selectedAction: string = '';
 
 }
+
