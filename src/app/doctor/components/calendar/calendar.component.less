@@ -1,69 +1,137 @@
-.calendar-layout {
-    display: flex;
-    height: calc(100vh - 60px); // Adjust based on your navbar height
-  
-    aside.clinic-sidenav {
-      width: 200px;
-      padding: 1rem;
-      background-color: #f7f7f7;
-      border-right: 1px solid #ddd;
-    }
-  
-    .calendar-container {
-      flex: 1;
-      padding: 1rem;
-      overflow-y: auto;
-  
-      .calendar-day,
-      .calendar-week,
-      .calendar-month {
-        min-height: 500px;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        padding: 1rem;
-      }
-    }
-  
-    aside.queue-panel {
-      width: 250px;
-      padding: 1rem;
-      background-color: #f9f9f9;
-      border-left: 1px solid #ddd;
-    }
-  }
-  
+// =============================
+// Calendar Page Styles
+// =============================
+
+// NAVBAR
+::ng-deep app-navbar-logged {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+
   .calendar-nav {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-  
+    gap: 1rem;
+
     h2 {
-      margin-right: 1rem;
+      margin: 0;
+      font-size: 1.5rem;
     }
-  
-    .nav-btn {
-      padding: 0.3rem 0.6rem;
-      background: none;
-      border: 1px solid #ccc;
-      cursor: pointer;
-    }
-  }
-  
-  .view-toggle {
-    display: flex;
-    gap: 0.5rem;
-  
+
     button {
-      padding: 0.4rem 1rem;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.9rem;
+      background: #f3f3f3;
       border: 1px solid #ccc;
-      background-color: #fff;
+      border-radius: 4px;
       cursor: pointer;
-  
-      &.active {
-        background-color: #1976d2;
-        color: #fff;
-        border-color: #1976d2;
+
+      &:hover {
+        background: #e8e8e8;
+      }
+
+      &.nav-btn {
+        font-size: 1.2rem;
       }
     }
   }
-  
+
+  .view-toggle {
+    display: flex;
+    gap: 0.5rem;
+
+    button {
+      padding: 0.4rem 1rem;
+      font-size: 0.85rem;
+      background: transparent;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+
+      &.active {
+        background: #1976d2;
+        color: white;
+        border-color: #1976d2;
+      }
+
+      &:hover {
+        background: #f0f0f0;
+      }
+    }
+  }
+}
+
+// MAIN LAYOUT
+.calendar-layout {
+  display: flex;
+  height: calc(100vh - 80px); // adjust based on navbar height
+  background-color: #fafafa;
+
+  aside,
+  section {
+    padding: 1rem;
+    overflow-y: auto;
+  }
+
+  // SIDENAV
+  .clinic-sidenav {
+    width: 200px;
+    background: #ffffff;
+    border-right: 1px solid #ddd;
+
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      li {
+        padding: 0.4rem 0;
+        border-bottom: 1px solid #eee;
+      }
+    }
+  }
+
+  // CALENDAR SECTION
+  .calendar-container {
+    flex: 1;
+    background: #fff;
+    border-right: 1px solid #ddd;
+
+    .calendar-day,
+    .calendar-week,
+    .calendar-month {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-style: italic;
+    }
+  }
+
+  // QUEUE PANEL
+  .queue-panel {
+    width: 220px;
+    background: #ffffff;
+
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #eee;
+      }
+    }
+  }
+}

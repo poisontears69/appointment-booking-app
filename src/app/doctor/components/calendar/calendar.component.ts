@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CalendarService } from './calendar.service';
 
 @Component({
   selector: 'app-calendar',
@@ -6,67 +7,43 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './calendar.component.html',
   styleUrl: './calendar.component.less'
 })
-export class CalendarComponent {
+export class CalendarComponent implements OnInit {
   currentDate: Date = new Date();
-  viewMode: 'day' | 'week' | 'month' = 'month';
+  viewMode: string = 'month';
+  calendarDays: any[] = [];
+  currentMonth: string = '';
+  currentYear: number = 0;
+  clinics = [{ name: 'Clinic One' }, { name: 'Clinic Two' }];
+  queuedPatients = [{ name: 'Jane Doe' }, { name: 'John Smith' }];
 
-  clinics = [
-    { name: 'HealthConnect Clinic A' },
-    { name: 'Wellness Center B' },
-    { name: 'Downtown Medical' }
-  ];
+  constructor(private calendarService: CalendarService) {}
 
-  queuedPatients = [
-    { name: 'John Doe' },
-    { name: 'Jane Smith' },
-    { name: 'Albert King' },
-    { name: 'Rachel Green' },
-    { name: 'Chris Rock' }
-  ];
-
-  constructor() {}
-
-  ngOnInit(): void {}
-
-  get currentMonth(): string {
-    return this.currentDate.toLocaleString('default', { month: 'long' });
+  ngOnInit(): void {
+    this.updateCalendar();
   }
 
-  get currentYear(): number {
-    return this.currentDate.getFullYear();
+  updateCalendar() {
+    this.currentMonth = this.currentDate.toLocaleString('default', { month: 'long' });
+    this.currentYear = this.currentDate.getFullYear();
+    this.calendarDays = this.calendarService.getMonthView(this.currentDate);
   }
 
-  setViewMode(mode: 'day' | 'week' | 'month'): void {
+  setViewMode(mode: string) {
     this.viewMode = mode;
   }
 
-  goToToday(): void {
+  previous() {
+    this.currentDate.setMonth(this.currentDate.getMonth() - 1);
+    this.updateCalendar();
+  }
+
+  next() {
+    this.currentDate.setMonth(this.currentDate.getMonth() + 1);
+    this.updateCalendar();
+  }
+
+  goToToday() {
     this.currentDate = new Date();
-  }
-
-  next(): void {
-    this.updateDate(1);
-  }
-
-  previous(): void {
-    this.updateDate(-1);
-  }
-
-  private updateDate(step: number): void {
-    const newDate = new Date(this.currentDate);
-
-    switch (this.viewMode) {
-      case 'day':
-        newDate.setDate(newDate.getDate() + step);
-        break;
-      case 'week':
-        newDate.setDate(newDate.getDate() + step * 7);
-        break;
-      case 'month':
-        newDate.setMonth(newDate.getMonth() + step);
-        break;
-    }
-
-    this.currentDate = newDate;
+    this.updateCalendar();
   }
 }

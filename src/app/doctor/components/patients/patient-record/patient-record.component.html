@@ -29,7 +29,7 @@
   <div class="tab-content">
     <ng-container [ngSwitch]="activeTab">
       <!-- PATIENT PROFILE -->
-    <div *ngSwitchCase="'Patient Profile'">
+    <div *ngSwitchCase="'Patient Profile'" class="patient-profile">
         <form [formGroup]="patientProfileForm" (ngSubmit)="savePatientProfile()">
           <div class="form-field">
             <label for="firstName">First Name</label>

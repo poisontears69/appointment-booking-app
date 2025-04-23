@@ -1,42 +1,47 @@
 <app-navbar-logged>
-    <div class="left calendar-nav">
-      <h2>{{ currentMonth }} {{ currentYear }}</h2>
-      <button (click)="goToToday()">Today</button>
-      <button class="nav-btn" (click)="previous()">&#8592;</button>
-      <button class="nav-btn" (click)="next()">&#8594;</button>
-    </div>
-  
-    <div class="center view-toggle">
-      <button [class.active]="viewMode === 'day'" (click)="setViewMode('day')">DAY</button>
-      <button [class.active]="viewMode === 'week'" (click)="setViewMode('week')">WEEK</button>
-      <button [class.active]="viewMode === 'month'" (click)="setViewMode('month')">MONTH</button>
-    </div>
-  </app-navbar-logged>
-  
-  <div class="calendar-layout">
-    <!-- Sidebar with Clinics -->
-    <aside class="clinic-sidenav">
-      <h3>My Clinics</h3>
-      <ul>
-        <li *ngFor="let clinic of clinics">{{ clinic.name }}</li>
-      </ul>
-    </aside>
-  
-    <!-- Calendar Section -->
-    <section class="calendar-container">
-      <ng-container [ngSwitch]="viewMode">
-        <div *ngSwitchCase="'day'" class="calendar-day">[Day View Template]</div>
-        <div *ngSwitchCase="'week'" class="calendar-week">[Week View Template]</div>
-        <div *ngSwitchCase="'month'" class="calendar-month">[Month View Template]</div>
-      </ng-container>
-    </section>
-  
-    <!-- Queue Section -->
-    <aside class="queue-panel">
-      <h3>Today's Queue</h3>
-      <ul>
-        <li *ngFor="let patient of queuedPatients">{{ patient.name }}</li>
-      </ul>
-    </aside>
+  <div class="left calendar-nav">
+    <h2>{{ currentMonth }} {{ currentYear }}</h2>
+    <button (click)="goToToday()">Today</button>
+    <button class="nav-btn" (click)="previous()">&#8592;</button>
+    <button class="nav-btn" (click)="next()">&#8594;</button>
   </div>
-  
+
+  <div class="center view-toggle">
+    <button [class.active]="viewMode === 'day'" (click)="setViewMode('day')">DAY</button>
+    <button [class.active]="viewMode === 'week'" (click)="setViewMode('week')">WEEK</button>
+    <button [class.active]="viewMode === 'month'" (click)="setViewMode('month')">MONTH</button>
+  </div>
+</app-navbar-logged>
+
+<div class="calendar-layout">
+  <aside class="clinic-sidenav">
+    <h3>My Clinics</h3>
+    <ul>
+      <li *ngFor="let clinic of clinics">{{ clinic.name }}</li>
+    </ul>
+  </aside>
+
+  <section class="calendar-container">
+    <ng-container [ngSwitch]="viewMode">
+      <div *ngSwitchCase="'day'" class="calendar-day">Day view not implemented</div>
+      <div *ngSwitchCase="'week'" class="calendar-week">Week view not implemented</div>
+      <div *ngSwitchCase="'month'" class="calendar-month">
+        <div class="calendar-grid">
+          <div *ngFor="let day of calendarDays" class="calendar-cell">
+            <span class="day-label">{{ day.date.getDate() }}</span>
+            <ul>
+              <li *ngFor="let event of day.events">{{ event.title }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </section>
+
+  <aside class="queue-panel">
+    <h3>Today's Queue</h3>
+    <ul>
+      <li *ngFor="let patient of queuedPatients">{{ patient.name }}</li>
+    </ul>
+  </aside>
+</div>
