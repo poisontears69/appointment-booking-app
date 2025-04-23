@@ -123,9 +123,103 @@
             <p>Graph view coming soon...</p>
         </div>
         </div>
-      <div *ngSwitchCase="'Doctor\'s Notes'">Doctor's Notes Content</div>
-      <div *ngSwitchCase="'Health Records'">Health Records Content</div>
-      <div *ngSwitchCase="'Queue Options'">Queue Options Content</div>
+      <!-- DOCTOR'S NOTES -->
+        <div *ngSwitchCase="'Doctor\'s Notes'" class="doctors-notes-section">
+            <h3>Doctor's Notes</h3>
+        
+            <div class="notes-list">
+            <div class="note-card" *ngFor="let note of dummyNotes">
+                <div class="note-header">
+                <span class="note-date">{{ note.date }}</span>
+                <span class="note-time">{{ note.time }}</span>
+                </div>
+                <div class="note-body">
+                <p>{{ note.content }}</p>
+                </div>
+            </div>
+            </div>
+        </div>
+<!-- HEALTH RECORDS -->
+<div *ngSwitchCase="'Health Records'" class="health-records-section">
+    <!-- Top Navbar -->
+    <div class="health-records-navbar">
+      <div class="left-filters">
+        <label>
+          View by Type:
+          <select [(ngModel)]="selectedType">
+            <option value="">All</option>
+            <option value="Lab Result">Lab Result</option>
+            <option value="X-Ray">X-Ray</option>
+            <option value="Prescription">Prescription</option>
+          </select>
+        </label>
+  
+        <label>
+          View by Date:
+          <select [(ngModel)]="selectedDate">
+            <option value="">All Dates</option>
+            <option *ngFor="let date of availableDates" [value]="date">{{ date }}</option>
+          </select>
+        </label>
+      </div>
+  
+      <div class="right-actions">
+        <button class="create-btn">Create Health Record</button>
+      </div>
+    </div>
+  
+    <!-- Health Record Cards -->
+    <div class="health-record-list">
+      <div class="record-card" *ngFor="let record of filteredRecords()">
+        <div class="record-header">
+          <div>
+            <h4>{{ record.type }}</h4>
+            <p class="lab">{{ record.lab }}</p>
+          </div>
+          <button class="edit-btn" title="Edit">
+            <span class="material-icons">edit</span>
+          </button>
+        </div>
+        <div class="record-details">
+          <p><strong>Date:</strong> {{ record.date }}</p>
+          <p><strong>Remarks:</strong> {{ record.remarks }}</p>
+          <div class="file-preview">📎 File/Image Placeholder</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngSwitchCase="'Queue Options'" class="queue-options">
+    <h3>Queue Options</h3>
+  
+    <div *ngIf="hasAppointmentToday; else noAppointment">
+      <label *ngFor="let option of queueOptionsToday">
+        <input
+          type="radio"
+          name="queueAction"
+          [value]="option"
+          [(ngModel)]="selectedAction"
+        />
+        {{ option }}
+      </label>
+    </div>
+  
+    <ng-template #noAppointment>
+      <label *ngFor="let option of queueOptionsNoAppointment">
+        <input
+          type="radio"
+          name="queueAction"
+          [value]="option"
+          [(ngModel)]="selectedAction"
+        />
+        {{ option }}
+      </label>
+    </ng-template>
+  
+    <div class="selected-action" *ngIf="selectedAction">
+      <p><strong>Selected Action:</strong> {{ selectedAction }}</p>
+    </div>
+  </div>
+  
     </ng-container>
   </div>
   

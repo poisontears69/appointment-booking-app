@@ -23,6 +23,39 @@ export class PatientRecordComponent {
     'Queue Options'
   ];
 
+  selectedType: string = '';
+  selectedDate: string = '';
+
+healthRecords = [
+  {
+    type: 'Lab Result',
+    lab: 'HealthLab Diagnostics',
+    date: '2025-04-01',
+    remarks: 'Blood test shows elevated cholesterol.',
+    file: 'labresult1.pdf'
+  },
+  {
+    type: 'X-Ray',
+    lab: 'Radiology Clinic',
+    date: '2025-03-15',
+    remarks: 'No fractures detected.',
+    file: 'xray1.jpg'
+  }
+];
+
+  dummyNotes = [
+    {
+      date: 'April 18, 2025',
+      time: '10:15 AM',
+      content: 'Patient reported mild headache and fatigue. Advised rest and hydration. No medication prescribed at this time.'
+    },
+    {
+      date: 'April 12, 2025',
+      time: '3:00 PM',
+      content: 'Follow-up visit. Patient responding well to treatment. Continue with current medication and return in 1 week.'
+    }
+  ];
+
   activeTab = 'Patient Profile';
 
   patientProfileForm!: FormGroup;
@@ -80,4 +113,35 @@ editVitals() {
   console.log('Edit vitals clicked');
   // Toggle editable rows or open edit modal
 }
+
+get availableDates() {
+  return [...new Set(this.healthRecords.map(r => r.date))];
+}
+
+filteredRecords() {
+  return this.healthRecords.filter(record =>
+    (!this.selectedType || record.type === this.selectedType) &&
+    (!this.selectedDate || record.date === this.selectedDate)
+  );
+}
+
+// Simulate if the patient has an appointment today
+hasAppointmentToday: boolean = true;
+
+queueOptionsToday: string[] = [
+  'Enter note',
+  'Schedule next appointment',
+  'Finish checkup',
+  'Cancel appointment',
+  'Skip this patient',
+  'Remove appointment and finish checkup'
+];
+
+queueOptionsNoAppointment: string[] = [
+  'Enter appointment notes',
+  'Schedule next appointment'
+];
+
+selectedAction: string = '';
+
 }
