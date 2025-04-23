@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -7,23 +7,30 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.less'
 })
-export class SignupComponent {
-  signupForm: FormGroup;
+export class SignupComponent implements OnInit{
+  signupForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit() {
     this.signupForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
-    });
+      username: ['', Validators.required],
+      phone: ['', [Validators.required, Validators.pattern('^[0-9]{10,15}$')]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['']
+    }, { validators: this.passwordMatchValidator });
   }
 
-  onSubmit(): void {
+  passwordMatchValidator(form: AbstractControl) {
+    const password = form.get('password')?.value;
+    const confirmPassword = form.get('confirmPassword')?.value;
+    return password === confirmPassword ? null : { passwordMismatch: true };
+  }
+
+  onSubmit() {
     if (this.signupForm.valid) {
-      console.log('Form Submitted!', this.signupForm.value);
-      // TODO: send data to backend
-    } else {
-      this.signupForm.markAllAsTouched();
+      console.log('Signup data:', this.signupForm.value);
+      // Handle your signup logic
     }
   }
 }

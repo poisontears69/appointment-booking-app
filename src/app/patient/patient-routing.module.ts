@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from '../layouts/patient-layout/dashboard.component';
 import { HomeComponent } from './component/home/home.component';
-import { FilesComponent } from '../pages/files/files.component';
+import { FilesComponent } from '../patient/component/files/files.component';
 import { DoctorsComponent } from './component/doctors/doctors.component';
 import { MessagesComponent } from './component/messages/messages.component';
 import { SearchDoctorComponent } from './component/search-doctor/search-doctor.component';

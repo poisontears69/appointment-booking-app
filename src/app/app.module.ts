@@ -27,8 +27,8 @@ import { DashboardComponent } from './layouts/patient-layout/dashboard.component
 import { PublicComponent } from './layouts/public-layout/public.component';
 import { DoctorDashboardComponent } from './layouts/doctor-layout/doctor-dashboard.component';
 import { AdminDashboardComponent } from './layouts/admin-layout/admin-dashboard.component';
-import { FilesComponent } from './pages/files/files.component';
-import { FilesSearchComponent } from './pages/files/files-search/files-search.component';
+import { FilesComponent } from './patient/component/files/files.component';
+import { FilesSearchComponent } from './patient/component/files/files-search/files-search.component';
 import { ProfileComponent } from './patient/component/profile/profile.component';
 import { ProfileDetailsComponent } from './patient/component/profile/profile-details/profile-details.component';
 import { DoctorsComponent } from './patient/component/doctors/doctors.component';
