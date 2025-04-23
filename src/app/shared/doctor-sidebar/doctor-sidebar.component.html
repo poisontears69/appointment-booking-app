@@ -35,6 +35,12 @@
     <!-- Secondary Menu -->
     <ul class="menu secondary-menu">
       <li routerLinkActive="active">
+        <a routerLink="/doctor/messages">
+          <span class="material-icons">message</span>
+          <span class="label">Messages</span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
         <a routerLink="/doctor/profile">
           <span class="material-icons">person</span>
           <span class="label">Profile</span>
@@ -50,12 +56,6 @@
         <a routerLink="/doctor/settings">
           <span class="material-icons">settings</span>
           <span class="label">Settings</span>
-        </a>
-      </li>
-      <li (click)="logout()">
-        <a>
-          <span class="material-icons">logout</span>
-          <span class="label">Logout</span>
         </a>
       </li>
     </ul>

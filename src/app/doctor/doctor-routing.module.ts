@@ -8,6 +8,7 @@ import { DoctorProfileComponent } from './components/doctor-profile/doctor-profi
 import { PatientsComponent } from './components/patients/patients.component';
 import { QueueComponent } from './components/queue/queue.component';
 import { DoctorSettingsComponent } from './components/doctor-settings/doctor-settings.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: 'profile', component: DoctorProfileComponent },
       { path: 'clinic', component: ClinicComponent },
       { path: 'settings', component: DoctorSettingsComponent },
+      { path: 'messages', component : MessagesComponent}
     ]
   }
 ];

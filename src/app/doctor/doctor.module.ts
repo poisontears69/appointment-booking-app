@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { DoctorRoutingModule } from './doctor-routing.module';
 import { DoctorComponent } from './doctor.component';
+import { MessagesComponent } from './components/messages/messages.component';
 
 
 @NgModule({
   declarations: [
     DoctorComponent,
+    MessagesComponent,
   ],
   imports: [
     CommonModule,
