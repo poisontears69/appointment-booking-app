@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -15,13 +15,23 @@ export class SignupComponent implements OnInit{
   ngOnInit() {
     this.signupForm = this.fb.group({
       username: ['', Validators.required],
-      phone: ['', [Validators.required, Validators.pattern('^[0-9]{10,15}$')]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['']
+
+      // Accepts +63xxxxxxxxxx or 09xxxxxxxxx
+      phone: ['', [
+        Validators.required,
+        Validators.pattern(/^(\+63|0)9\d{9}$/)
+      ]],
+
+      password: ['', [
+        Validators.required,
+        Validators.minLength(6)
+      ]],
+
+      confirmPassword: ['', Validators.required]
     }, { validators: this.passwordMatchValidator });
   }
 
-  passwordMatchValidator(form: AbstractControl) {
+  passwordMatchValidator(form: AbstractControl): ValidationErrors | null {
     const password = form.get('password')?.value;
     const confirmPassword = form.get('confirmPassword')?.value;
     return password === confirmPassword ? null : { passwordMismatch: true };
@@ -30,7 +40,9 @@ export class SignupComponent implements OnInit{
   onSubmit() {
     if (this.signupForm.valid) {
       console.log('Signup data:', this.signupForm.value);
-      // Handle your signup logic
+      // You can now proceed to the verification step
+    } else {
+      this.signupForm.markAllAsTouched();
     }
   }
 }

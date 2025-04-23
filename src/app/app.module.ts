@@ -47,6 +47,7 @@ import { DoctorLoginComponent } from './doctor-auth/doctor-login/doctor-login.co
 import { DoctorSignupComponent } from './doctor-auth/doctor-signup/doctor-signup.component';
 import { MessagesComponentDoctor } from './doctor/components/messages/messages.component';
 import { PatientRecordComponent } from './doctor/components/patients/patient-record/patient-record.component';
+import { PhoneVerificationComponent } from './pages/phone-verification/phone-verification.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { PatientRecordComponent } from './doctor/components/patients/patient-rec
     DoctorHomeComponent,
     DoctorLoginComponent,
     DoctorSignupComponent,
-    PatientRecordComponent
+    PatientRecordComponent,
+    PhoneVerificationComponent
   ],
   imports: [
     BrowserModule,
