@@ -45,6 +45,7 @@ import { DoctorHomeComponent } from './doctor/components/doctor-home/doctor-home
 import { NavbarLoggedComponent } from './shared/navbar-logged/navbar-logged.component';
 import { DoctorLoginComponent } from './doctor-auth/doctor-login/doctor-login.component';
 import { DoctorSignupComponent } from './doctor-auth/doctor-signup/doctor-signup.component';
+import { MessagesComponentDoctor } from './doctor/components/messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { DoctorSignupComponent } from './doctor-auth/doctor-signup/doctor-signup
     NavbarComponent,
     LandingComponent,
     NavbarLoggedComponent,
+    MessagesComponentDoctor,
     LoginComponent,
     SignupComponent,
     HeroComponent,

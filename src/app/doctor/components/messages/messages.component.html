@@ -1,1 +1,43 @@
-<p>messages works!</p>
+<app-navbar-logged>
+    <div class="left">
+      <h2>Messages</h2>
+    </div>
+  </app-navbar-logged>
+  
+  <div class="messages-page">
+    <!-- Sidebar with Contacts -->
+    <div class="messages-sidebar">
+      <div class="contact" *ngFor="let contact of contacts">
+        <div class="avatar"></div>
+        <div class="contact-info">
+          <h4>{{ contact.name }}</h4>
+          <p>{{ contact.lastMessage }}</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Chat Section -->
+    <div class="chat-section">
+      <div class="chat-timeline">
+        <div class="message" *ngFor="let msg of messages">
+          <div [ngClass]="{ 'sent': msg.sent, 'received': !msg.sent }">
+            <p>{{ msg.text }}</p>
+            <span class="timestamp">{{ msg.timestamp }}</span>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Input Bar -->
+      <div class="chat-input-bar">
+        <input type="file" id="fileUpload" hidden (change)="onFileSelected($event)" />
+        <button class="file-btn" (click)="triggerFileUpload()">
+          <span class="material-icons">attach_file</span>
+        </button>
+        <input type="text" placeholder="Type a message..." [(ngModel)]="newMessage" />
+        <button class="send-btn" (click)="sendMessage()">
+          <span class="material-icons">send</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  
