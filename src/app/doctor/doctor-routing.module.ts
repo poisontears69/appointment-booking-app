@@ -9,6 +9,7 @@ import { PatientsComponent } from './components/patients/patients.component';
 import { QueueComponent } from './components/queue/queue.component';
 import { DoctorSettingsComponent } from './components/doctor-settings/doctor-settings.component';
 import { MessagesComponentDoctor } from './components/messages/messages.component';
+import { PatientRecordComponent } from './components/patients/patient-record/patient-record.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,8 @@ const routes: Routes = [
       { path: 'profile', component: DoctorProfileComponent },
       { path: 'clinic', component: ClinicComponent },
       { path: 'settings', component: DoctorSettingsComponent },
-      { path: 'messages', component : MessagesComponentDoctor}
+      { path: 'messages', component : MessagesComponentDoctor},
+      { path: 'patient-record', component : PatientRecordComponent},
     ]
   }
 ];

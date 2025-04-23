@@ -1,0 +1,131 @@
+<!-- Top Navbar: Patient Info -->
+<app-navbar-logged>
+    <div class="left patient-info">
+      <img class="patient-avatar" src="https://via.placeholder.com/48" alt="Patient Photo" />
+      <div class="patient-details">
+        <h3>{{ patient.name }}</h3>
+        <p>{{ patient.birthdate }} · {{ patient.age }} yrs · {{ patient.gender }}</p>
+      </div>
+    </div>
+  
+    <div class="right nav-actions">
+      <button class="icon-btn" title="Print" (click)="printRecord()">
+        <span class="material-icons">print</span>
+      </button>
+      <button class="icon-btn" title="Close" (click)="closeRecord()">
+        <span class="material-icons">close</span>
+      </button>
+    </div>
+  </app-navbar-logged>
+  
+  <!-- Sub Navigation -->
+  <nav class="sub-nav">
+    <button *ngFor="let tab of tabs" [class.active]="activeTab === tab" (click)="selectTab(tab)">
+      {{ tab }}
+    </button>
+  </nav>
+  
+  <!-- Tab Content Placeholder -->
+  <div class="tab-content">
+    <ng-container [ngSwitch]="activeTab">
+      <!-- PATIENT PROFILE -->
+    <div *ngSwitchCase="'Patient Profile'">
+        <form [formGroup]="patientProfileForm" (ngSubmit)="savePatientProfile()">
+          <div class="form-field">
+            <label for="firstName">First Name</label>
+            <input id="firstName" type="text" formControlName="firstName" />
+          </div>
+  
+          <div class="form-field">
+            <label for="lastName">Last Name</label>
+            <input id="lastName" type="text" formControlName="lastName" />
+          </div>
+  
+          <div class="form-field">
+            <label for="birthdate">Birthdate</label>
+            <input id="birthdate" type="date" formControlName="birthdate" />
+          </div>
+  
+          <div class="form-field">
+            <label for="gender">Gender</label>
+            <select id="gender" formControlName="gender">
+              <option value="">Select gender</option>
+              <option value="Female">Female</option>
+              <option value="Male">Male</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+  
+          <div class="form-field">
+            <label for="contact">Mobile Number</label>
+            <input id="contact" type="tel" formControlName="contact" />
+          </div>
+  
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input id="email" type="email" formControlName="email" />
+          </div>
+  
+          <button type="submit" [disabled]="patientProfileForm.invalid">Save Changes</button>
+        </form>
+      </div>
+
+      <!-- VITALS SECTION -->
+        <div *ngSwitchCase="'Vitals'" class="vitals-section">
+        <!-- Vitals Navbar -->
+        <div class="vitals-navbar">
+            <div class="left">
+            <button class="tab-btn" [class.active]="vitalsView === 'table'" (click)="setVitalsView('table')">Table</button>
+            <button class="tab-btn" [class.active]="vitalsView === 'graph'" (click)="setVitalsView('graph')">Graph</button>
+            </div>
+
+            <div class="right">
+            <button class="action-btn" (click)="addVitals()">Add Vitals</button>
+            <button class="action-btn" (click)="editVitals()">Edit Vitals</button>
+            </div>
+        </div>
+
+        <!-- Filter -->
+        <div class="vitals-filter">
+            <label>View by:</label>
+            <select [(ngModel)]="selectedRange">
+            <option value="day">Day</option>
+            <option value="week">Week</option>
+            <option value="month">Month</option>
+            <option value="quarter">Quarter</option>
+            <option value="year">Year</option>
+            </select>
+        </div>
+
+        <!-- Table View -->
+        <div class="vitals-table" *ngIf="vitalsView === 'table'">
+            <table>
+            <thead>
+                <tr>
+                <th>Vital Type</th>
+                <th *ngFor="let date of vitalDates">{{ date }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let vital of vitalTypes">
+                <td>{{ vital }}</td>
+                <td *ngFor="let date of vitalDates">
+                    <!-- Placeholder value -->
+                    <span>-</span>
+                </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+
+        <!-- Graph View (template placeholder) -->
+        <div class="vitals-graph" *ngIf="vitalsView === 'graph'">
+            <p>Graph view coming soon...</p>
+        </div>
+        </div>
+      <div *ngSwitchCase="'Doctor\'s Notes'">Doctor's Notes Content</div>
+      <div *ngSwitchCase="'Health Records'">Health Records Content</div>
+      <div *ngSwitchCase="'Queue Options'">Queue Options Content</div>
+    </ng-container>
+  </div>
+  

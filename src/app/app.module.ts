@@ -46,6 +46,7 @@ import { NavbarLoggedComponent } from './shared/navbar-logged/navbar-logged.comp
 import { DoctorLoginComponent } from './doctor-auth/doctor-login/doctor-login.component';
 import { DoctorSignupComponent } from './doctor-auth/doctor-signup/doctor-signup.component';
 import { MessagesComponentDoctor } from './doctor/components/messages/messages.component';
+import { PatientRecordComponent } from './doctor/components/patients/patient-record/patient-record.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { MessagesComponentDoctor } from './doctor/components/messages/messages.c
     DoctorHomeComponent,
     DoctorLoginComponent,
     DoctorSignupComponent,
+    PatientRecordComponent
   ],
   imports: [
     BrowserModule,
