@@ -43,6 +43,8 @@ import { ClinicComponent } from './doctor/components/clinic/clinic.component';
 import { DoctorSettingsComponent } from './doctor/components/doctor-settings/doctor-settings.component';
 import { DoctorHomeComponent } from './doctor/components/doctor-home/doctor-home.component';
 import { NavbarLoggedComponent } from './shared/navbar-logged/navbar-logged.component';
+import { DoctorLoginComponent } from './doctor-auth/doctor-login/doctor-login.component';
+import { DoctorSignupComponent } from './doctor-auth/doctor-signup/doctor-signup.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +80,8 @@ import { NavbarLoggedComponent } from './shared/navbar-logged/navbar-logged.comp
     ClinicComponent,
     DoctorSettingsComponent,
     DoctorHomeComponent,
+    DoctorLoginComponent,
+    DoctorSignupComponent,
   ],
   imports: [
     BrowserModule,

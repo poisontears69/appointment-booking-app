@@ -1,0 +1,35 @@
+<section class="auth">
+    <div class="auth-card">
+      <h2>Doctor Login</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <label for="username">Username</label>
+        <input id="username" type="text" formControlName="username" />
+        <div *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.invalid">
+          <small class="error">Username is required</small>
+        </div>
+  
+        <label for="password">Password</label>
+        <input id="password" type="password" formControlName="password" />
+        <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+          <small class="error">Password is required</small>
+        </div>
+  
+        <button type="submit" [disabled]="isLoading">
+          <span *ngIf="!isLoading">Login</span>
+          <span *ngIf="isLoading">Logging in...</span>
+        </button>
+      </form>
+  
+      <p class="redirect">
+        Don't have an account? <a routerLink="/doctor-signup">Sign Up</a>
+      </p>
+
+      <div class="patient-switch">
+        <p>Are you a patient?</p>
+        <button routerLink="/login" class="patient-btn">
+          Go to Patient Portal
+        </button>
+      </div>
+    </div>
+  </section>
+  
