@@ -1,1 +1,39 @@
-<p>clinic works!</p>
+<app-navbar-logged>
+    <div class="left">
+      <h2>Clinic</h2>
+    </div>
+    <div class="right">
+      <button class="icon-btn">
+        <span class="material-icons">add</span>
+        Add Clinic
+      </button>
+    </div>
+  </app-navbar-logged>
+  
+  <section class="clinic-section">
+    <div class="clinic-card" *ngFor="let clinic of clinics">
+      <img [src]="clinic.photo" alt="Clinic Photo" class="clinic-photo" />
+      <div class="clinic-details">
+        <h3>{{ clinic.name }}</h3>
+        <p>{{ clinic.address }}</p>
+  
+        <div class="contact-info">
+          <p><strong>Landmark:</strong> {{ clinic.landmark }}</p>
+          <p><strong>Email:</strong> {{ clinic.email }}</p>
+          <p><strong>Landline:</strong> {{ clinic.landline }}</p>
+          <p><strong>Mobile:</strong> {{ clinic.mobile }}</p>
+          <p><strong>Contact Person:</strong> {{ clinic.contactPerson }}</p>
+        </div>
+  
+        <div class="clinic-schedule">
+          <h4>Schedule</h4>
+          <div *ngFor="let schedule of clinic.schedule">
+            <p>
+              {{ schedule.day }}: {{ schedule.time }} ({{ schedule.type }})
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
