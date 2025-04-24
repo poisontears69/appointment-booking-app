@@ -5,13 +5,14 @@ import { DoctorRoutingModule } from './doctor-routing.module';
 import { DoctorComponent } from './doctor.component';
 
 
+
 @NgModule({
   declarations: [
     DoctorComponent,
   ],
   imports: [
     CommonModule,
-    DoctorRoutingModule
+    DoctorRoutingModule,
   ]
 })
 export class DoctorModule { }

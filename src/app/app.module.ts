@@ -48,6 +48,8 @@ import { DoctorSignupComponent } from './doctor-auth/doctor-signup/doctor-signup
 import { MessagesComponentDoctor } from './doctor/components/messages/messages.component';
 import { PatientRecordComponent } from './doctor/components/patients/patient-record/patient-record.component';
 import { PhoneVerificationComponent } from './pages/phone-verification/phone-verification.component';
+import { CalendarModule, } from '@syncfusion/ej2-angular-calendars';
+import { ScheduleModule, DayService, WeekService, WorkWeekService, MonthService, AgendaService } from '@syncfusion/ej2-angular-schedule';
 
 @NgModule({
   declarations: [
@@ -94,8 +96,15 @@ import { PhoneVerificationComponent } from './pages/phone-verification/phone-ver
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    CalendarModule,
+    ScheduleModule
   ],
-  providers: [],
+  providers: [
+    DayService, 
+    WeekService, 
+    WorkWeekService, 
+    MonthService, 
+    AgendaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
