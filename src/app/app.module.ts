@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
@@ -13,7 +16,6 @@ import { NavbarComponent } from './pages/landing/navbar/navbar.component';
 // Page components
 import { LandingComponent } from './pages/landing/landing/landing.component';
 import { LoginComponent } from './pages/login/login/login.component';
-import { SignupComponent } from './pages/signup/signup/signup.component';
 import { HomeComponent } from './patient/component/home/home.component';
 
 // Landing subcomponents
@@ -50,6 +52,11 @@ import { PatientRecordComponent } from './doctor/components/patients/patient-rec
 import { PhoneVerificationComponent } from './pages/phone-verification/phone-verification.component';
 import { CalendarModule, } from '@syncfusion/ej2-angular-calendars';
 import { ScheduleModule, DayService, WeekService, WorkWeekService, MonthService, AgendaService } from '@syncfusion/ej2-angular-schedule';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { PatientLoginComponent } from './patient-auth/patient-login/patient-login.component';
+import { PatientSignupComponent } from './patient-auth/patient-signup/patient-signup.component';
+import { VerifyComponent } from './patient-auth/verify/verify.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +66,6 @@ import { ScheduleModule, DayService, WeekService, WorkWeekService, MonthService,
     NavbarLoggedComponent,
     MessagesComponentDoctor,
     LoginComponent,
-    SignupComponent,
     HeroComponent,
     FeaturesComponent,
     CtaComponent,
@@ -89,7 +95,10 @@ import { ScheduleModule, DayService, WeekService, WorkWeekService, MonthService,
     DoctorLoginComponent,
     DoctorSignupComponent,
     PatientRecordComponent,
-    PhoneVerificationComponent
+    PhoneVerificationComponent,
+    PatientLoginComponent,
+    PatientSignupComponent,
+    VerifyComponent
   ],
   imports: [
     BrowserModule,
@@ -97,7 +106,10 @@ import { ScheduleModule, DayService, WeekService, WorkWeekService, MonthService,
     ReactiveFormsModule,
     FormsModule,
     CalendarModule,
-    ScheduleModule
+    ScheduleModule,
+    CommonModule,
+    RouterModule,
+    HttpClientModule,
   ],
   providers: [
     DayService, 
